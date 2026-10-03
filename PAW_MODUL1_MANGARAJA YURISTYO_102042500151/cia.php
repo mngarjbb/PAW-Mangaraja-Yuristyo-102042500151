@@ -1,10 +1,5 @@
 <?php
-/* =====================================================
-   CIA STORE - Katalog Produk
-   HTML + CSS + PHP Native
-   ===================================================== */
 
-// 1. DATA PRODUK (disimpan dalam array PHP)
 $produk = [
     ["nama" => "Laptop Ultrabook 14\"",     "kategori" => "Laptop",     "harga" => 8500000, "stok" => 5,  "gambar" => "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&h=600&fit=crop&q=80"],
     ["nama" => "Smartphone Nova X",          "kategori" => "Smartphone", "harga" => 3200000, "stok" => 12, "gambar" => "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=600&fit=crop&q=80"],
@@ -16,12 +11,12 @@ $produk = [
     ["nama" => "Speaker Bluetooth Mini",     "kategori" => "Audio",      "harga" => 499000,  "stok" => 14, "gambar" => "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=600&h=600&fit=crop&q=80"],
 ];
 
-// 2. FUNGSI
+
 function rupiah($angka) {
     return "Rp" . number_format($angka, 0, ",", ".");
 }
 
-// Challenge: diskon 10% untuk harga >= Rp1.000.000
+
 define("BATAS_DISKON", 1000000);
 define("PERSEN_DISKON", 10);
 
@@ -29,11 +24,10 @@ function hitungDiskon($harga) {
     return $harga * PERSEN_DISKON / 100;
 }
 
-// Foto produk: isi "gambar" dengan nama file lokal (mis. "img/laptop.jpg")
-// atau URL foto langsung. Tanpa titik = kata kunci (LoremFlickr).
+
 function fotoProduk($gambar, $id) {
     if (strpos($gambar, ".") !== false) {
-        return $gambar; // file lokal / URL langsung
+        return $gambar; 
     }
     return "https://loremflickr.com/600/600/" . urlencode($gambar) . "?lock=" . $id;
 }
@@ -72,7 +66,7 @@ $totalProduk = count($produk);
         a { color: inherit; text-decoration: none; }
         :focus-visible { outline: 1px solid var(--teks); outline-offset: 3px; }
 
-        /* Announcement */
+        
         .info-bar {
             background: var(--teks);
             color: var(--hitam);
@@ -83,7 +77,7 @@ $totalProduk = count($produk);
             padding: 9px 16px;
         }
 
-        /* Navbar: menu kiri, logo tengah */
+        
         header {
             position: sticky; top: 0; z-index: 10;
             background: var(--hitam);
@@ -110,7 +104,7 @@ $totalProduk = count($produk);
         .nav ul a { color: var(--redup); transition: color .2s; }
         .nav ul a:hover { color: var(--teks); }
 
-        /* Hero */
+   
         .hero {
             padding: 120px 24px 96px;
             text-align: center;
@@ -129,7 +123,7 @@ $totalProduk = count($produk);
             color: var(--redup); font-size: 15px;
         }
 
-        /* Tombol */
+       
         .btn {
             display: inline-block;
             font-family: var(--font-isi);
@@ -148,7 +142,7 @@ $totalProduk = count($produk);
         }
         .btn.penuh { width: 100%; text-align: center; }
 
-        /* Informasi jumlah produk */
+       
         .ringkasan {
             padding: 24px 24px 16px;
             display: flex; justify-content: space-between; align-items: baseline;
@@ -158,7 +152,7 @@ $totalProduk = count($produk);
         .ringkasan h2 { font-size: 14px; font-weight: 600; letter-spacing: .04em; }
         .ringkasan span { color: var(--redup); font-size: 13px; }
 
-        /* Katalog: CSS Grid, rapat, tanpa kotak */
+        
         .katalog {
             padding: 0 12px 96px;
             display: grid;
@@ -214,7 +208,7 @@ $totalProduk = count($produk);
         .status.habis { color: var(--teks); font-weight: 600; }
         .aksi { padding: 14px 0 0; }
 
-        /* Footer */
+        
         footer { border-top: 1px solid var(--garis); }
         .footer-isi {
             padding: 40px 24px;
@@ -227,7 +221,6 @@ $totalProduk = count($produk);
             color: var(--teks); font-size: 18px;
         }
 
-        /* Responsive */
         @media (max-width: 1024px) { .katalog { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) {
             .katalog { grid-template-columns: repeat(2, 1fr); gap: 32px 10px; }
@@ -246,7 +239,7 @@ $totalProduk = count($produk);
 
     <div class="info-bar">Diskon 10% untuk semua produk mulai Rp1.000.000</div>
 
-    <!-- NAVBAR -->
+    
     <header>
         <nav class="nav">
             <a href="#" class="logo">Cia Store</a>
@@ -258,24 +251,23 @@ $totalProduk = count($produk);
         </nav>
     </header>
 
-    <!-- HERO -->
+    
     <section class="hero">
         <h1>Cia Store</h1>
         <p>Perangkat dan aksesoris teknologi pilihan untuk kerja, main, dan sehari-hari.</p>
         <a href="#katalog" class="btn">Lihat Katalog</a>
     </section>
 
-    <!-- INFORMASI JUMLAH PRODUK -->
+    
     <section class="ringkasan" id="katalog">
         <h2>Semua Produk</h2>
         <span>Menampilkan <?= $totalProduk; ?> produk</span>
     </section>
 
-    <!-- KATALOG PRODUK -->
     <main class="katalog">
         <?php foreach ($produk as $i => $item): ?>
             <?php
-                // Percabangan: status berdasarkan stok
+                
                 if ($item["stok"] > 0) {
                     $status      = "Tersedia";
                     $kelasStatus = "tersedia";
@@ -284,7 +276,7 @@ $totalProduk = count($produk);
                     $kelasStatus = "habis";
                 }
 
-                // Challenge: diskon 10% bila harga >= Rp1.000.000
+                
                 $dapatDiskon = $item["harga"] >= BATAS_DISKON;
                 if ($dapatDiskon) {
                     $hargaAkhir = $item["harga"] - hitungDiskon($item["harga"]);
