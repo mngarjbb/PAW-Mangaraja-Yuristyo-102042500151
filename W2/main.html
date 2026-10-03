@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Biodata</title>
+<style>
+  :root{
+    --bg:#f5f5f5; --card:#ffffff; --text:#222; --muted:#666; --line:#e5e5e5; --accent:#333;
+  }
+  html,body{height:100%;}
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+    padding:20px;
+    padding-top:calc(20px + env(safe-area-inset-top,0px));
+    padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));
+  }
+  .card{
+    background:var(--card);
+    width:100%;max-width:340px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:24px 20px;
+  }
+  .photo{
+    width:100px;height:100px;
+    border-radius:50%;
+    overflow:hidden;
+    margin:0 auto 14px;
+    background:#eee;
+  }
+  .photo img{width:100%;height:100%;object-fit:cover;}
+  .name{
+    text-align:center;
+    font-size:18px;font-weight:bold;color:var(--text);
+    margin-bottom:2px;
+  }
+  .role{
+    text-align:center;color:var(--muted);font-size:13px;margin-bottom:18px;
+  }
+  table{width:100%;border-collapse:collapse;margin-bottom:18px;}
+  td{padding:6px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  td.label{color:var(--muted);width:80px;}
+  td.value{color:var(--text);font-weight:bold;text-align:right;}
+  .socials{text-align:center;}
+  .socials a{
+    display:inline-flex;align-items:center;gap:6px;
+    text-decoration:none;color:var(--accent);
+    font-size:14px;border:1px solid var(--line);
+    border-radius:6px;padding:6px 12px;
+  }
+  .socials svg{width:16px;height:16px;fill:var(--accent);}
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#111; --card:#1b1b1b; --text:#eee; --muted:#999; --line:#333; --accent:#eee;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#111; --card:#1b1b1b; --text:#eee; --muted:#999; --line:#333; --accent:#eee;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="photo">
+      <img src="foto.jpg" alt="Foto profil">
+    </div>
+    <div class="name">Mangaraja Yuristyo Buwono</div>
+    <div class="role">Mahasiswa</div>
+
+    <table>
+      <tr>
+        <td class="label">Nama</td>
+        <td class="value">Mangaraja Yuristyo Buwono</td>
+      </tr>
+      <tr>
+        <td class="label">NIM</td>
+        <td class="value">102042500151</td>
+      </tr>
+      <tr>
+        <td class="label">Umur</td>
+        <td class="value">19</td>
+            <tr>
+        <td class="label">Hobi</td>
+        <td class="value">Main game</td>
+      </tr>
+    </table>
+
+    <div class="socials">
+      <a href="https://instagram.com/mngarjbb" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.2.06 2 .25 2.4.42.6.24 1 .53 1.5 1 .47.47.76.9 1 1.5.17.4.36 1.2.42 2.4.06 1.3.07 1.7.07 4.9s0 3.6-.07 4.9c-.06 1.2-.25 2-.42 2.4-.24.6-.53 1-1 1.5-.47.47-.9.76-1.5 1-.4.17-1.2.36-2.4.42-1.3.06-1.7.07-4.9.07s-3.6 0-4.9-.07c-1.2-.06-2-.25-2.4-.42-.6-.24-1-.53-1.5-1-.47-.47-.76-.9-1-1.5-.17-.4-.36-1.2-.42-2.4C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.9c.06-1.2.25-2 .42-2.4.24-.6.53-1 1-1.5.47-.47.9-.76 1.5-1 .4-.17 1.2-.36 2.4-.42C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.75.07-1 .05-1.55.22-1.9.36-.48.19-.82.41-1.18.77-.36.36-.58.7-.77 1.18-.14.35-.31.9-.36 1.9C3 9.5 3 9.85 3 13s0 3.5.07 4.75c.05 1 .22 1.55.36 1.9.19.48.41.82.77 1.18.36.36.7.58 1.18.77.35.14.9.31 1.9.36 1.25.07 1.6.07 4.75.07s3.5 0 4.75-.07c1-.05 1.55-.22 1.9-.36.48-.19.82-.41 1.18-.77.36-.36.58-.7.77-1.18.14-.35.31-.9.36-1.9.07-1.25.07-1.6.07-4.75s0-3.5-.07-4.75c-.05-1-.22-1.55-.36-1.9a3.1 3.1 0 0 0-.77-1.18 3.1 3.1 0 0 0-1.18-.77c-.35-.14-.9-.31-1.9-.36C15.5 4 15.15 4 12 4zm0 3.2a5.8 5.8 0 1 1 0 11.6 5.8 5.8 0 0 1 0-11.6zm0 1.8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm6.1-2.02a1.36 1.36 0 1 1-2.72 0 1.36 1.36 0 0 1 2.72 0z"/></svg>
+        @mngarjbb
+      </a>
+    </div>
+  </div>
+</body>
+</html>
